@@ -15,7 +15,7 @@ char map[25][80];
 int game, Dx,Dy,Ox,Ox2,Ox3,jump_temp,jump,DS;
 game = 0;
 jump = 0;
-DS = 0;
+DS = 1;
 int main()
 {
 	int x, y;
@@ -39,10 +39,8 @@ int main()
 		map[23][Ox] =Air;
 		Ox--;
 		map[23][Ox] = Obstacle;
-		//jump = getch();
 		if (kbhit()!=0)
 		{
-			getch();
 			jump_temp = getch();
 			if ((jump_temp==Space)&&(jump==0))
 			{
@@ -52,23 +50,24 @@ int main()
 		}
 		if (jump==1)
 		{
-			if(0 < DS < 3)
+			map[Dy][Dx] = Air;
+			if((0<DS)&&(DS<3))
 			{
 				Dy--;
 				DS++;
 			}
-			if (DS == 3)
+			else if (DS == 3)
 			{
 				DS = -1;
 			}
-			if (DS < 0)
+			else if ((-3<DS)&&(DS < 0))
 			{
 				Dy++;
 				DS--;
 			}
-			if (DS == -3)
+			else if (DS == -3)
 			{
-				DS = 0;
+				DS = 1;
 				jump = 0;
 			}
 			map[Dy][Dx] = Dinosaur;
