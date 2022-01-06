@@ -1,5 +1,7 @@
 ﻿D:\pic\業\程式語言\Visual studio\VS\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Intermediate 目錄。
 D:\pic\業\程式語言\Visual studio\VS\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Output 目錄。
-cl : 命令列 warning D9014: 無效的值 '2369' (屬於 '/wd'); 假設為 '5999'
   main.c
-D:\pic\業\程式語言\作業\期末作業\source\main.c : fatal error C1083: 無法開啟編譯器中產生的檔案: 'D:\pic\業\程式語言\作業\期末作業\temp\debug\main.obj': Permission denied
+d:\pic\業\程式語言\作業\期末作業\source\main.c(29): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+d:\pic\業\程式語言\作業\期末作業\source\main.c(73): warning C4553: '==': 未使用運算式結果; 您是否想要 '='?
+d:\pic\業\程式語言\作業\期末作業\source\main.c(149): warning C4244: '函式': 將 'double' 轉換為 'DWORD'，由於類型不同，可能導致資料遺失
+  小恐龍.vcxproj -> D:\pic\業\程式語言\作業\期末作業\小恐龍\小恐龍\..\..\temp\debug\小恐龍.exe

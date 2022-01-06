@@ -1,3 +1,4 @@
 ﻿  main.c
-d:\pic\業\程式語言\作業\期末作業\source\main.c(49): warning C4553: '==': 未使用運算式結果; 您是否想要 '='?
+d:\pic\業\程式語言\作業\期末作業\source\main.c(21): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+d:\pic\業\程式語言\作業\期末作業\source\main.c(65): warning C4553: '==': 未使用運算式結果; 您是否想要 '='?
   小恐龍.vcxproj -> D:\pic\業\程式語言\作業\期末作業\小恐龍\x64\Debug\小恐龍.exe

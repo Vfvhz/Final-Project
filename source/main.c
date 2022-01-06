@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
-//72,80,75,77是方向鍵對應的鍵值
 #define Space 32
 #define Air 0
 #define Dinosaur 1     //恐龍的座標標識
@@ -12,19 +11,23 @@
 void print_game(void);
 //初始化地圖 130*25
 char map[25][80];
-int game, Dx,Dy,Ox,Ox2,Ox3,jump_temp,jump,DS;
+int game, Dx,Dy,Ox,Ox2,Ox3,jump_temp,jump,DS,T;
 game = 0;
 jump = 0;
 DS = 1;
 int main()
 {
+	system("color 70"); 
+	srand(time(0));
 	int x, y;
-	Dx = 3; Ox = 48; Dy = 23;
+	Dx = 3; Ox = 48; Dy = 23; Ox2 = 65; Ox3 = 79; T = 1;
 	//初始化恐龍座標
 	map[Dy][Dx] = Dinosaur;
 	//初始化障礙座標
 	map[23][Ox] = Obstacle;
-	//邊界
+	map[23][Ox2] = Obstacle;
+	map[23][Ox3] = Obstacle;
+	//地板
 	for ( x = 0; x < 25; x++)
 	{
 		for ( y = 0; y < 50; y++)
@@ -33,12 +36,25 @@ int main()
 				map[x][y] = BAR;
 		}
 	}
+	//開始
+	printf("按任意鍵開始!");
+	getch();
+	//主要內容
 	while (1)
 	{
 		print_game();
 		map[23][Ox] =Air;
-		Ox--;
+		map[23][Ox2] = Air;
+		map[23][Ox3] = Air;
+		Ox--; Ox2--; Ox3--;
 		map[23][Ox] = Obstacle;
+		map[23][Ox2] = Obstacle;
+		map[23][Ox3] = Obstacle;
+		if (map[Dy][Dx]==Obstacle)
+		{
+			break;
+		}
+		//判斷跳躍
 		if (kbhit()!=0)
 		{
 			jump_temp = getch();
@@ -48,35 +64,54 @@ int main()
 			}
 			jump_temp == 0;
 		}
+		//跳躍移動
 		if (jump==1)
 		{
 			map[Dy][Dx] = Air;
-			if((0<DS)&&(DS<3))
+			if((0<DS)&&(DS<5))
 			{
 				Dy--;
 				DS++;
 			}
-			else if (DS == 3)
+			else if (DS == 5)
 			{
 				DS = -1;
 			}
-			else if ((-3<DS)&&(DS < 0))
+			else if ((-5<DS)&&(DS < 0))
 			{
 				Dy++;
 				DS--;
 			}
-			else if (DS == -3)
+			else if (DS == -5)
 			{
 				DS = 1;
 				jump = 0;
 			}
 			map[Dy][Dx] = Dinosaur;
 		}
+		//將障礙清除重新出現
+		if (Ox == 0)
+		{
+			map[23][Ox] = Air;
+			Ox = ((rand() % 30) + 50);
+		}
+		else if (Ox2 == 0)
+		{
+			map[23][0] = Air;
+			Ox2 = ((rand() % 30) + 50);
+			
+		}
+		else if (Ox3 == 0)
+		{
+			map[23][0] = Air;
+			Ox3 = ((rand() % 30) + 50);
 		
-		
+
+		}
+
 
 	}
-
+	printf("Game Over!!!!!!");
 }
 void print_game(void) {
 	int i, j;
@@ -102,7 +137,7 @@ void print_game(void) {
 			}
 		}
 		putchar('\n');
-	}
-	Sleep(1);     //休眠函式  
+	}   
+	Sleep(0.001);//休眠函式  
 	system("cls");  //清屏函式 配合下一次 print_game() 起到重新整理作用，包含在stdlib.h中
 }
