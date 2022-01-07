@@ -9,6 +9,7 @@
 #define Obstacle 2      //障礙的座標標識
 #define BAR 3       //牆的座標標識
 void print_game(void);
+void HideCursor(void);
 //初始化地圖 130*25
 char map[25][80];
 int game, Dx,Dy,Ox,Ox2,Ox3,jump_temp,jump,DS,T;
@@ -42,6 +43,7 @@ int main()
 	//主要內容
 	while (1)
 	{
+		HideCursor();
 		print_game();
 		map[23][Ox] =Air;
 		map[23][Ox2] = Air;
@@ -105,8 +107,6 @@ int main()
 		{
 			map[23][0] = Air;
 			Ox3 = ((rand() % 30) + 50);
-		
-
 		}
 
 
@@ -138,6 +138,12 @@ void print_game(void) {
 		}
 		putchar('\n');
 	}   
-	Sleep(0.001);//休眠函式  
+	Sleep(1);//休眠函式  
 	system("cls");  //清屏函式 配合下一次 print_game() 起到重新整理作用，包含在stdlib.h中
+}
+//隱藏光標
+void HideCursor(void)
+{
+	CONSOLE_CURSOR_INFO cursor_info = { 1,0 };
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
