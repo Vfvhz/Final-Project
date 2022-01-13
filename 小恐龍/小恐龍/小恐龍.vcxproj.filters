@@ -11,13 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\Color.c">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\main.c">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\Cursor.c">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

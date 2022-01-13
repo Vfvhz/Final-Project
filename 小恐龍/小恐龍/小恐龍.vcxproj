@@ -134,8 +134,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\Color.c" />
-    <ClCompile Include="..\..\source\Cursor.c" />
     <ClCompile Include="..\..\source\main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
