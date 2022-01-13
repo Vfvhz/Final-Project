@@ -12,9 +12,9 @@ void print_game(void);
 void HideCursor(void);
 void gotoxy(int x, int y);
 void changecolor(int color);
-//初始化地圖 130*25
+//初始化地圖 80*25
 char map[25][80];
-int score, game, Dx, Dy, Ox, Ox2, Ox3, jump_temp, jump, DS, T;
+int score, game, Dx, Dy, Ox, Ox2, Ox3, jump_temp, jump, DS;
 clock_t begin, end;
 double cost;
 game = 0;
@@ -26,7 +26,7 @@ int main()
 	system("color 70");
 	srand(time(0));
 	int x, y;
-	Dx = 3; Ox = 48; Dy = 23; Ox2 = 65; Ox3 = 79; T = 1;
+	Dx = 3; Ox = 48; Dy = 23; Ox2 = 65; Ox3 = 79;
 	//初始化恐龍座標
 	map[Dy][Dx] = Dinosaur;
 	//初始化障礙座標
